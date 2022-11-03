@@ -1,0 +1,136 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background: rgb(244,244,244);
+    background: linear-gradient(90deg, rgba(244,244,244,1) 0%, rgba(1,8,5,1) 100%, rgba(193,30,60,1) 100%);
+}
+
+li {
+    list-style: none;
+}
+label {
+    width: 41px;
+    height: 19px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #1E1E1E;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+.register__submit{
+    padding-top: 20px;
+}
+input {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 14px 20px;
+    gap: 10px;
+    width: 340px;
+    height: 47px;
+    border: none;
+    border-radius: 8px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    transition: 1s;
+}
+input:hover{
+    transform: scale(1.01);
+}
+input:focus{
+    outline: none;
+}
+
+.register__text {
+    cursor: pointer;
+    color: #fff;
+    background-color: black;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #FCFCFC;
+    transition: 1s;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+.helptext{
+        font-family: 'Inter';
+        font-style: normal;
+        padding: 30px;
+        font-size: 10px;
+}
+.wrap-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto 0;
+}
+
+.register__title {
+    padding-top: 30px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 52px;
+    letter-spacing: -0.06em;
+    width: 228px;
+    color: #1E1E1E;
+    margin-bottom: 20px;
+}
+.wrap-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.backhome{
+    display: flex;
+    font-family: 'Inter';
+    font-style: normal;
+    padding-top: 30px;
+}
+.backhome__href{
+    color: #fff;
+    padding-left: 45px;
+    transition: 0.4s;
+}
+.backhome__href:hover{
+    color: black;
+}
+ul{
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 10px;
+}

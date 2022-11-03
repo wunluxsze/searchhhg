@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@0;1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__wrap">
+                <div class="header__logo">
+                    <h3>{{ user.username|default:'Guest' }}</h3>
+                </div>
+                <nav class="header__menu">
+                    <ul class="header__list">
+                        <div classalign="header__item">
+                            <audio src="{% static 'music/alyss.mp3' %}" id="audio"></audio>
+                            <button type="button" class="header__link header__music__button" onclick="soundClick()">
+                                Enable background music</button>
+                        </div>
+                        <script type="text/javascript">
+                            let isPlaying = false;
+                            let button = document.querySelector('.header__music__button')
+
+                            function soundClick() {
+
+                                var audio = document.getElementById('audio');
+                                if (audio.paused) {
+                                    audio.play();
+                                    button.innerHTML = 'Disable background music'
+                                } else {
+                                    audio.pause();
+                                    button.innerHTML = 'Enable background music'
+                                }
+                            }
+
+                        </script>
+                        <li class="header__item">
+                            {% if user.is_authenticated %}
+                            <a class="header__link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="header__item">
+                            <a class="header__link" href="{% url 'signup' %}">Registration</a>
+                        </li>
+                        <li class="header__item">
+                            <a class="header__link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- search -->
+
+
+    <div class="search">
+        <div class="search-top">
+            <div class="search-top__inner">
+                <div id='watch'></div>
+                <p class="currency">{{dollar}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{euro}}</p>
+            </div>
+        </div>
+        <form action="" class="search__engine">
+            {% if user.is_authenticated %}
+            <input name="q" type="text" placeholder="Enter word..." class="search__block">
+            {% else %}
+            <input name="q" type="text" placeholder="Enter word..." disabled class="search__block">
+            {% endif %}
+            <input type="submit" value="Search" class="search__btn">
+        </form>
+    </div>
+    <div class="search__result">
+        {% autoescape off %}
+        {% if not sentences and check %}
+        <p class="search__result__none">0 результатов поиска</p>
+        {% else %}
+        {% for i in sentences %}
+        <p class="search__result__text">{{ i }}</p>
+        {% endfor %}
+        {% endif %}
+        {% endautoescape %}
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="{% static 'js/style.js' %}"></script>
+</body>
+
+</html>
